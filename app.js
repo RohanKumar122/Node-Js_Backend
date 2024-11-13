@@ -14,7 +14,6 @@ const logrequest = (req, res, next) => {
   next();
 };
 
-
 app.use(logrequest);
 
 app.get("/", (req, res) => {
