@@ -2,6 +2,15 @@ const express = require("express");
 const app = express();
 const db = require("./utils/database-connection");
 const bodyParser = require("body-parser"); //middleware
+const cors = require("cors");
+
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || '*', // Default to all origins if FRONTEND_URL is not set
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
 
 const PORT = 3000;
 app.use(bodyParser.json()); //req.body
